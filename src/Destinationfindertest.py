@@ -6,7 +6,7 @@ import psycopg2
 import json
 
 from pymongo import MongoClient
-conn_string = "host='192.168.1.8' dbname='sabre' user='postgres' password='Lokifish123'"
+conn_string = "host='192.168.1.8' dbname='sabre' user='postgres' password=''"
 conn = psycopg2.connect(conn_string)
 cursor = conn.cursor()
 

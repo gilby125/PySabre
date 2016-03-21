@@ -1,37 +1,15 @@
 import DestinationFinder as DST
 import urllib2
 from datetime import datetime
-import peewee
-import time
 import dataset
 import psycopg2
-from psycopg2.extensions import AsIs
-from playhouse.dataset import DataSet
-import sqlalchemy
 import json
-from pymongo import MongoClient
-from porc \
-	import Client
-#from sqlalchemy import create_engine
-#from sqlalchemy.schema import MetaData
+
 from pymongo import MongoClient
 conn_string = "host='192.168.1.8' dbname='sabre' user='postgres' password='Lokifish123'"
 conn = psycopg2.connect(conn_string)
 cursor = conn.cursor()
-# psql_db = PostgresqlExtDatabase('sabre', user='pi', password=  'raspberry',host='192.168.1.8')
 
-
-#db = PostgresqlExtDatabase('sabre', user='pi', password='raspberry', host='192.168.1.8')
-
-#conn_str = 'postgresql://pi:raspberry@192.168.1.8:5432/sabre'
-#engine = create_engine(conn_str)
-
-# orchestrate.io connection
-#client = Client('')
-#client.ping().raise_for_status()
-
-# mongo
-#client = MongoClient("mongodb://localhost:27017")
 client = MongoClient("mongodb://192.168.1.8:27017")
 
 # collection = db1.sabre_cpm

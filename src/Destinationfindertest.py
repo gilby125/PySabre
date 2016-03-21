@@ -27,7 +27,7 @@ cursor = conn.cursor()
 #engine = create_engine(conn_str)
 
 # orchestrate.io connection
-#client = Client('dfe9973f-e962-4cde-bf1e-f0bf0fc85384')
+#client = Client('')
 #client.ping().raise_for_status()
 
 # mongo

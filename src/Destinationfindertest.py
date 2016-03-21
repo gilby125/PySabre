@@ -18,7 +18,7 @@ Src_airports = [line.strip() for line in open("C:\\Users\\gilby\\PycharmProjects
 cpm = '.05'
 
 
-pdb = dataset.connect('postgresql://pi:raspberry@192.168.1.8:5432/sabre')
+
 
 
 

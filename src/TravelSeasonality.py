@@ -7,7 +7,7 @@ class TravelSeasonality(object):
         self.tasks = {}
 
     def call(self):
-        self.response = self.HandleREST.request_content( '/v1/historical/flights/JFK/seasonality ' + \
+        self.response = self.HandleREST.request_content(' /v1/historical/flights/JFK/seasonality ' + \
                 '&'.join([task[0] for task in self.tasks.values() if task[1]]))
 
         # Return JSON content

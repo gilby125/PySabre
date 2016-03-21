@@ -17,7 +17,8 @@ class DestinationFinder(object):
             'returndate'            : ['returndate=', False],\
             'lengthofstay'          : ['lengthofstay=', False],\
             'earliestdeparturedate' : ['earliestdeparturedate=', False],\
-            'latestdeparturedate'   : ['latestdeparturedate=', False]}
+            'latestdeparturedate'   : ['latestdeparturedate=', False],\
+            'pricepermile'          : ['pricepermile=', False]}
 
         self.response = {}
 
@@ -53,8 +54,8 @@ class DestinationFinder(object):
         '''
         Adding the user input to departuredate string 
         '''
-        self.tasks['lengthofstay'][1] = True
-        self.tasks['lengthofstay'][0] += ','.join(mnfare)
+        self.tasks['minfare'][1] = True
+        self.tasks['minfare'][0] += ','.join(mnfare)
 
     def maxfare(self, mxfare):
         '''
@@ -75,7 +76,7 @@ class DestinationFinder(object):
         Adding the user input to departuredate string 
         '''
         self.tasks['region'][1] = True
-        self.tasks['region'][0] += ','.join(regon)
+        self.tasks['region'][0] += regon #','.join(regon)
 
     def topdestinations(self, topdest):
         '''
@@ -103,7 +104,9 @@ class DestinationFinder(object):
         Adding the user input to departuredate string 
         '''
         self.tasks['lengthofstay'][1] = True
-        self.tasks['lengthofstay'][0] += ','.join(lstay)
+        self.tasks['lengthofstay'][0] += ','.join([str(i) for i in lstay])
+
+
 
     def earliestdeparturedate(self, edepart):
         '''
@@ -117,11 +120,22 @@ class DestinationFinder(object):
         Adding the user input to departuredate string 
         '''
         self.tasks['latestdeparturedate'][1] = True
-        self.tasks['latestdeparturedate'][0] += ','.join(ldepart)     
+        self.tasks['latestdeparturedate'][0] += ','.join(ldepart)
+
+    def pricepermile(self, ppm):
+
+        self.tasks['pricepermile'][1] = True
+        self.tasks['pricepermile'][0] += ppm
+
+
 
     ### Query ###
     def call(self):
-                self.response = self.HandleREST.request_content( '/v1/shop/flights/fares?' + \
+        """
+
+        :rtype: object
+        """
+        self.response = self.HandleREST.request_content( '/v1/shop/flights/fares?' + \
                 '&'.join([task[0] for task in self.tasks.values() if task[1]]))
         # Return JSON content
         return self.response

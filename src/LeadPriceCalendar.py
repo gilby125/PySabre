@@ -1,5 +1,5 @@
 import HTTPCall
-
+import json
 class LeadPriceCalendar(object):
     def __init__(self):
         self.HandleREST = HTTPCall.HTTPCall()
@@ -12,7 +12,7 @@ class LeadPriceCalendar(object):
             'departuredate'            : ['departuredate=', False],\
             'minfare'                  : ['minfare=', False],\
             'maxfare'                  : ['maxfare=', False],\
-            'pointofsalecountry'       : ['maxfare=', False]}
+            'pointofsalecountry'       : ['pointofsalecountry=', False]}
 
         self.response = {}
 
@@ -136,6 +136,10 @@ class LeadPriceCalendar(object):
     ### Call Function ###
 
     def call(self):
+        """
+
+        :rtype: object
+        """
         if self.tasks['departuredate'][1]:
             assert self.tasks['lengthofstay'][0].count(',') < 5
         else:

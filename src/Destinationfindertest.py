@@ -1,7 +1,6 @@
 import DestinationFinder as DST
 import urllib2
 from datetime import datetime
-import dataset
 import psycopg2
 import json
 
@@ -16,13 +15,6 @@ client = MongoClient("mongodb://192.168.1.8:27017")
 Src_airports = [line.strip() for line in open("C:\\Users\\gilby\\PycharmProjects\\PySabre\\src\\origins.txt", 'r')]
 # set cpm
 cpm = '.05'
-
-
-
-
-
-
-
 
 for i in Src_airports:
 	try:
